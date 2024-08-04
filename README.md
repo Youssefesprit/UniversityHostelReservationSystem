@@ -21,7 +21,6 @@ The University Hostel Reservation System is a web-based application designed to 
 - **🔗 Spring MVC**: Employed for handling web requests with RESTful controllers.
 - **⏲️ Spring Scheduler**: Enables the execution of scheduled tasks.
 - **🔍 Spring Data JPA**: Used for repository management and JPQL for database interaction.
-- **🔑 Spring Security**: Implements robust security and authentication mechanisms.
 - **🌐 Dependency Injection**: Demonstrates the injection of dependencies within the Spring context.
 - **📝 API Documentation**: Documented with Spring MVC and Swagger for clear API communication.
 ## 🛠 Installation
@@ -51,3 +50,9 @@ This will create a new database named universityHousingDB which the application 
    git clone https://github.com/yourgithubusername/UniversityHostelReservationSystem.git
    cd UniversityHostelReservationSystem
    ./mvnw spring-boot:run
+4. **Access Swagger UI**:
+   Once the application is running, access the Swagger UI to interact with the API at:
+   [http://localhost:8083/universityHousing/swagger-ui/](http://localhost:8083/universityHousing/swagger-ui/)
+
+## 🌟 Conclusion
+This project showcases my skills in Java development, specifically with the Spring Boot framework. Through the development of the University Hostel Reservation System, I have demonstrated a comprehensive understanding of building robust and scalable web applications. This encompasses key aspects such as database interaction and API management, underlining my ability to handle complex backend systems effectively.
