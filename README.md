@@ -24,9 +24,30 @@ The University Hostel Reservation System is a web-based application designed to 
 - **🔑 Spring Security**: Implements robust security and authentication mechanisms.
 - **🌐 Dependency Injection**: Demonstrates the injection of dependencies within the Spring context.
 - **📝 API Documentation**: Documented with Spring MVC and Swagger for clear API communication.
-
 ## 🛠 Installation
-Clone the repository and navigate into the directory:
-```bash
-git clone https://github.com/yourgithubusername/UniversityHostelReservationSystem.git
-cd UniversityHostelReservationSystem
+
+### Prerequisites
+Before running the application, you will need to set up the required database. Follow these steps to create your database:
+
+1. **Create the Database**:
+   Ensure that you have MySQL installed on your system. Open your MySQL command line or a GUI tool like MySQL Workbench and execute the following SQL command:
+
+   ```sql
+   CREATE DATABASE universityHousingDB;
+This will create a new database named universityHousingDB which the application will use to store all data.
+
+2. **Configure Application Properties** 📝:
+   Open the `application.properties` file located in `src/main/resources/` and update the database connection properties to match your environment:
+
+   ```properties
+   spring.datasource.url=jdbc:mysql://localhost:3306/universityHousingDB
+   spring.datasource.username=yourUsername
+   spring.datasource.password=yourPassword
+
+3. **Running the Application** 🚀:
+   After setting up the database, you can run the application by executing the following commands in your terminal:
+   
+   ```bash
+   git clone https://github.com/yourgithubusername/UniversityHostelReservationSystem.git
+   cd UniversityHostelReservationSystem
+   ./mvnw spring-boot:run
