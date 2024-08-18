@@ -62,10 +62,7 @@ public class IReservationServiceImpl implements IReservationService {
     @Override
     public List<Reservation> getAllReservation() {
         log.debug("Fetching all reservations");
-        Iterable<Reservation> iterable = reservationRepository.findAll();
-        List<Reservation> reservations = new ArrayList<>();
-        iterable.forEach(reservations::add);
-        return reservations;
+        return (List<Reservation>) reservationRepository.findAll();
     }
 
     @Override
@@ -82,7 +79,6 @@ public class IReservationServiceImpl implements IReservationService {
 
     @Override
     public List<Reservation> listReservationParNomEtudiant(String nomEt, Date anneeUniversitaire) {
-
         log.debug("Listing reservations by Student Name: {}, Year: {}", nomEt, anneeUniversitaire);
         return reservationRepository.findByEtudiantsNomEtAndAnneeUniversitaire(nomEt, anneeUniversitaire);
     }

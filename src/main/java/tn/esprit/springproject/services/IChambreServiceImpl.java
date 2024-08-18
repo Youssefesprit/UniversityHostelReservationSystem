@@ -36,9 +36,7 @@ public class IChambreServiceImpl implements IChambreService{
     @Override
     public List<Chambre> getAllChambre() {
         log.debug("Fetching all chambres");
-        List<Chambre> chambreList = new ArrayList<>();
-        chambreRepository.findAll().forEach(chambreList::add);
-        return chambreList;
+        return (List<Chambre>) chambreRepository.findAll();
     }
 
     @Override

@@ -33,9 +33,7 @@ public class IBlocServiceImpl implements IBlocService{
     @Override
     public List<Bloc> getAllBloc() {
         log.debug("Retrieving all blocs");
-        List<Bloc> blocList = new ArrayList<>();
-        blocRepository.findAll().forEach(blocList::add);
-        return blocList;
+        return (List<Bloc>) blocRepository.findAll();
     }
 
     @Override

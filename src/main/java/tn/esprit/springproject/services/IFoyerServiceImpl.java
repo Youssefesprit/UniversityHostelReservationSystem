@@ -33,9 +33,7 @@ public class IFoyerServiceImpl implements IFoyerService {
     @Override
     public List<Foyer> getAllFoyer() {
         log.debug("Fetching all foyers");
-        List<Foyer> foyers = new ArrayList<>();
-        foyerRepository.findAll().forEach(foyers::add);
-        return foyers;
+        return (List<Foyer>) foyerRepository.findAll();
     }
 
     @Override
@@ -59,8 +57,7 @@ public class IFoyerServiceImpl implements IFoyerService {
     @Override
     public Foyer ajouterFoyerEtAffecterAUniversite(Foyer foyer, long idUniversite) {
         log.debug("Adding foyer and affecting it to universite ID: {}", idUniversite);
-        Universite universite = universiteRepository
-                .findById(idUniversite)
+        Universite universite = universiteRepository.findById(idUniversite)
                 .orElseThrow(() -> new RuntimeException("Universite not found with ID: " + idUniversite));
 
         foyer.setFoyerUniversite(universite);

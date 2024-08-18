@@ -35,20 +35,18 @@ public class IEtudiantServiceImpl implements IEtudiantService {
             throw new IllegalArgumentException("Provided file is empty and cannot be uploaded.");
         }
         try {
-            // Generating a new filename
+
             String originalFilename = file.getOriginalFilename();
             String fileExtension = originalFilename != null ? originalFilename.substring(originalFilename.lastIndexOf('.')) : "";
             String newFilename = System.currentTimeMillis() + "-" + UUID.randomUUID().toString() + fileExtension;
 
-            // File storage location
             Path rootLocation = Paths.get("src/main/resources/static/uploads/userImage/");
             Files.createDirectories(rootLocation); // Ensuring the directory exists
             Path filePath = rootLocation.resolve(newFilename);
             Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
 
-            // Saving only the new filename instead of the entire path
             etudiant.setImage(newFilename);
-            return addEtudiant(etudiant); // Saving etudiant with the new image filename
+            return addEtudiant(etudiant);
         } catch (IOException e) {
             log.error("Failed to store file due to IOException: {}", e.getMessage(), e);
             throw new RuntimeException("Failed to store file.", e);
@@ -66,9 +64,7 @@ public class IEtudiantServiceImpl implements IEtudiantService {
     @Override
     public List<Etudiant> getAllEtudiant() {
         log.debug("Fetching all etudiants");
-        List<Etudiant> etudiants = new ArrayList<>();
-        etudiantRepository.findAll().forEach(etudiants::add);
-        return etudiants;
+        return (List<Etudiant>) etudiantRepository.findAll();
     }
 
     @Override

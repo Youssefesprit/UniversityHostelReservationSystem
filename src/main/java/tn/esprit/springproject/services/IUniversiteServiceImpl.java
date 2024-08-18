@@ -34,10 +34,7 @@ public class IUniversiteServiceImpl implements IUniversiteService{
     @Override
     public List<Universite> getAllUniversite() {
         log.debug("Fetching all universites");
-        Iterable<Universite> iterable = universiteRepository.findAll();
-        List<Universite> universites = new ArrayList<>();
-        iterable.forEach(universites::add);
-        return universites;
+        return (List<Universite>) universiteRepository.findAll();
     }
 
     @Override
